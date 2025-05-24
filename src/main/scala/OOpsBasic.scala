@@ -9,6 +9,8 @@ class Person(val name: String, val age: Int) {
 
   // Example: You can define methods that use these fields
   def greet(): String = s"Hello, my name is $name and I am $age years old."
+
+  
 }
 
 // Object with main method (App trait) to run the code
