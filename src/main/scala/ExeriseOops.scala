@@ -60,9 +60,9 @@ class Counter(val count: Int = 0) {
   }
 
   /** Increment the counter by n recursively. */
-  def inc(n: Int): Counter = {
+  def inc1(n: Int): Counter = {
     if (n <= 0) this
-    else inc.inc(n - 1)
+    else inc.inc1(n - 1)
   }
 
   /** Decrement the counter by n recursively. */
@@ -84,7 +84,7 @@ object ExeriseOops extends App {
   println(s"Copied Novel Year: ${copiedNovel.year}, Author Age: ${copiedNovel.authorage}")
 
   val counter = new Counter()
-  val incrementedCounter = counter.inc(5)
+  val incrementedCounter = counter.inc1(5)
   println(s"Counter after incrementing 5 times: ${incrementedCounter.count}")
   val decrementedCounter = incrementedCounter.dec(3)
   println(s"Counter after decrementing 3 times: ${decrementedCounter.count}")
