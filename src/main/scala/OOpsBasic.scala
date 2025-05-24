@@ -1,0 +1,5 @@
+package OopsLearning
+
+object OOpsBasic {
+
+}
