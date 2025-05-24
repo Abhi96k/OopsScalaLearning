@@ -21,6 +21,7 @@ class Writer(firstName: String, lastName: String, val year: Int) {
  * @param author The author of the novel.
  */
 class Novel(val name: String, val year: Int, val author: Writer) {
+
   /** The age of the author when the novel was published. */
   val authorage: Int = year - author.year
 
@@ -43,7 +44,35 @@ class Novel(val name: String, val year: Int, val author: Writer) {
   }
 }
 
-/** Main object to demonstrate OOP concepts with Writer and Novel. */
+/** A simple immutable counter class. */
+class Counter(val count: Int = 0) {
+
+  /** Increment the counter by 1 (returns a new Counter). */
+  def inc: Counter = {
+    println(s"Incrementing count: $count")
+    new Counter(count + 1)
+  }
+
+  /** Decrement the counter by 1 (returns a new Counter). */
+  def dec: Counter = {
+    println(s"Decrementing count: $count")
+    new Counter(count - 1)
+  }
+
+  /** Increment the counter by n recursively. */
+  def inc(n: Int): Counter = {
+    if (n <= 0) this
+    else inc.inc(n - 1)
+  }
+
+  /** Decrement the counter by n recursively. */
+  def dec(n: Int): Counter = {
+    if (n <= 0) this
+    else dec.dec(n - 1)
+  }
+}
+
+/** Main object to demonstrate OOP concepts with Writer, Novel, and Counter. */
 object ExeriseOops extends App {
   val author = new Writer("Abhishek", "Nangare", 2002)
   val novel = new Novel("Scala OOPs", 2023, author)
@@ -53,4 +82,10 @@ object ExeriseOops extends App {
 
   val copiedNovel = novel.copy1(2024)
   println(s"Copied Novel Year: ${copiedNovel.year}, Author Age: ${copiedNovel.authorage}")
+
+  val counter = new Counter()
+  val incrementedCounter = counter.inc(5)
+  println(s"Counter after incrementing 5 times: ${incrementedCounter.count}")
+  val decrementedCounter = incrementedCounter.dec(3)
+  println(s"Counter after decrementing 3 times: ${decrementedCounter.count}")
 }
