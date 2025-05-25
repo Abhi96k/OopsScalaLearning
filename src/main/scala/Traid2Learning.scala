@@ -24,6 +24,10 @@ object Traid2Learning extends App {
     }
   }
 
+  //traid and abstract class difference
+  // A trait can be mixed into a class, while an abstract class can be extended.
+  // A trait can have no constructor parameters, while an abstract class can have constructor parameters.
+ // mutiple traits inheritance is allowed, while multiple inheritance of classes is not allowed in Scala.
   val dog = new Dog
   val crocodile = new Crocodile
   crocodile.eat(dog) // Output: Crocodile eats Canine
