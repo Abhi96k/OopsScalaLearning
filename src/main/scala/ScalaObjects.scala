@@ -15,7 +15,7 @@ object ScalaObjects extends App {
     // A factory method to create a Person instance
     // This method is not necessary, but demonstrates how to create instances
     // using an object
-    def from(mother : String, father: String): Person = new Person("Abhishek")
+    def createPerson(motherName: String, fatherName: String): Person = new Person("Abhishek")
   }
   // A simple class to demonstrate the use of objects
   class Person(val name: String) {
@@ -28,15 +28,15 @@ object ScalaObjects extends App {
   println(MathUtils.cube(3))   // Output: 27
 
   //single instance object
-  val person=MathUtils
-  println(person.square(4)) // Output: 16
-  val person2=MathUtils
-  println(person2.cube(2))   // Output: 8
+  val mathUtils=MathUtils
+  println(mathUtils.square(4)) // Output: 16
+  val mathUtils2=MathUtils
+  println(mathUtils2.cube(2))   // Output: 8
 
-  println(person == person2) // Output: true, both refer to the same instance
+  println(mathUtils == mathUtils2) // Output: true, both refer to the same instance
 
   // Creating a Person instance using the factory method
-  val abhishek = MathUtils.from("Mother", "Father")
+  val abhishek = MathUtils.createPerson("Mother", "Father")
 
   println(s"Created a person named: ${abhishek.name}") // Output: Created a person named: Abhishek
   println(abhishek.greet()) // Output: Hello, my name is Abhishek

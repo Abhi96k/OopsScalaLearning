@@ -9,7 +9,7 @@ package OopsLearning
 class Writer(firstName: String, lastName: String, val year: Int) {
 
   /** Returns the full name of the writer. */
-  def FullName(): String = {
+  def fullName(): String = {
     s"$firstName $lastName"
   }
 }
@@ -23,7 +23,7 @@ class Writer(firstName: String, lastName: String, val year: Int) {
 class Novel(val name: String, val year: Int, val author: Writer) {
 
   /** The age of the author when the novel was published. */
-  val authorage: Int = year - author.year
+  val authorAgeAtPublication: Int = year - author.year
 
   /** Checks if the novel was written by the given author.
    *
@@ -39,7 +39,7 @@ class Novel(val name: String, val year: Int, val author: Writer) {
    * @param newYear The new year for the copied novel.
    * @return A new Novel instance with the updated year.
    */
-  def copy1(newYear: Int): Novel = {
+  def copyWithNewYear(newYear: Int): Novel = {
     new Novel(name, newYear, author)
   }
 }
@@ -60,15 +60,15 @@ class Counter(val count: Int = 0) {
   }
 
   /** Increment the counter by n recursively. */
-  def inc1(n: Int): Counter = {
+  def incrementBy(n: Int): Counter = {
     if (n <= 0) this
-    else inc.inc1(n - 1)
+    else inc.incrementBy(n - 1)
   }
 
   /** Decrement the counter by n recursively. */
-  def dec(n: Int): Counter = {
+  def decrementBy(n: Int): Counter = {
     if (n <= 0) this
-    else dec.dec(n - 1)
+    else dec.decrementBy(n - 1)
   }
 }
 
@@ -77,15 +77,15 @@ object ExeriseOops extends App {
   val author = new Writer("Abhishek", "Nangare", 2002)
   val novel = new Novel("Scala OOPs", 2023, author)
 
-  println(s"Author: ${author.FullName()}, Age at publication: ${novel.authorage}")
+  println(s"Author: ${author.fullName()}, Age at publication: ${novel.authorAgeAtPublication}")
   println(s"Novel: ${novel.name}, Written by original author: ${novel.isWrittenBy(author)}")
 
-  val copiedNovel = novel.copy1(2024)
-  println(s"Copied Novel Year: ${copiedNovel.year}, Author Age: ${copiedNovel.authorage}")
+  val copiedNovel = novel.copyWithNewYear(2024)
+  println(s"Copied Novel Year: ${copiedNovel.year}, Author Age: ${copiedNovel.authorAgeAtPublication}")
 
   val counter = new Counter()
-  val incrementedCounter = counter.inc1(5)
+  val incrementedCounter = counter.incrementBy(5)
   println(s"Counter after incrementing 5 times: ${incrementedCounter.count}")
-  val decrementedCounter = incrementedCounter.dec(3)
+  val decrementedCounter = incrementedCounter.decrementBy(3)
   println(s"Counter after decrementing 3 times: ${decrementedCounter.count}")
 }
