@@ -11,11 +11,11 @@ object Traid2Learning extends App {
     override def eat(): Unit = println("Dog eats bones")
   }
 
-  trait carnivore {
+  trait Carnivore {
     def eat(animal: Animal): Unit
   }
 
-  class Crocodile extends Animal with carnivore {
+  class Crocodile extends Animal with Carnivore {
     override val creatureType: String = "Crocodile"
     override def eat(): Unit = println("Crocodile eats meat")
 

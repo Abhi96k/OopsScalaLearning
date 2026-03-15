@@ -4,13 +4,13 @@ import scala.language.postfixOps
 
 object MethodNotation extends App {
 
-  class Person(val name:String,favroiteMovie:String) {
+  class Person(val name:String, favoriteMovie:String) {
 
     def likes(movie:String):Boolean={
-      movie == favroiteMovie
+      movie == favoriteMovie
     }
 
-    def hangoutName(person: Person):String=s"${this.name} hangs out with ${person.name}"
+    def hangoutWith(person: Person):String=s"${this.name} hangs out with ${person.name}"
 
     def + (person: Person): String = {
       s"${this.name} is friends with ${person.name}"
@@ -30,7 +30,7 @@ object MethodNotation extends App {
    println(person likes "Inception") // true, using infix notation
 
    val person2=new Person("John", "Avatar")
-    println(person hangoutName person2) // Abhishek hangs out with John
+    println(person hangoutWith person2) // Abhishek hangs out with John
 
     println(person + person2) // Abhishek is friends with John
     println(person.+ (person2)) // Abhishek is friends with John, using method notation
